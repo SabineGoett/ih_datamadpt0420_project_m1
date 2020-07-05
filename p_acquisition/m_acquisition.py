@@ -31,22 +31,13 @@ def dic_country_codes ():
     url = 'ec.europa.eu/eurostat/statistics-explained/index.php/Glossary:Country_codes'
     html = requests.get(f'https://{url}').content
     soup = BeautifulSoup(html, 'lxml')
-    countries = soup.text
-    countries_Be_SE = countries [2184:2596]
-    countries_UK = countries [2611:2639]
-    countries_Iceland = countries [2683:2763]
-    countries_Montenegro = countries[2791:2886]
-    countries_Bosnia = countries[2949:3005]
-    countries_Armenia = countries[3062:3174]
-    countries_Algeria = countries[3233:3336]
-    countries_Russia = countries[3465:3479]
-    countries_Argentina = countries[3506:3819]
-    countries_total = countries_Be_SE + countries_UK + countries_Iceland + countries_Montenegro + countries_Bosnia + countries_Armenia +countries_Algeria + countries_Russia + countries_Argentina
-    countries_split_list = re.split('\n', countries_total)
+    list_int = [element.text for element in soup.find_all('table')]
+    string = ''.join(list_int)
+    country_list = string.split('\n')
     list_country = []
     list_keys = []
     list_empty = []
-    for i in countries_split_list:
+    for i in country_list:
         if '(' in i and i != 'China (except Hong Kong)':
             list_keys.append(i)
         elif i == '':

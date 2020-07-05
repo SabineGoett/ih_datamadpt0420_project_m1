@@ -10,12 +10,13 @@
 
 A table shall be created with the following content: number and percentage of jobs in different countries and areas. 
 The basic information is given in a database in different tables. The country information is only given with country 
-codes. The job information is given in encrypted codes. The areas are described with different words for the 
+codes. The job information is also given in codes. The areas are described with different words for the 
 same meaning.
 
 **Realization:** 
 
-The project was realized in PyCharm and can be executed with a python script. 
+The project was realized in PyCharm and can be executed with a python script.
+ 
 The following programs, libraries… were used: SQL, Python, Pandas, BeautifulSoup, Numpy, WebScraping, RegEx, Argparse, Requests...
 
 
