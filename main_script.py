@@ -10,8 +10,8 @@ from p_reporting import m_reporting as mre
 
 def argument_parser():
     parser = argparse.ArgumentParser(description='specify inputs')
-    parser.add_argument('-p','--path', help='introduce...', type = str, required=True)
-    parser.add_argument('-j','--job_path', help='get...', type = str, required=True)
+    parser.add_argument('-p','--path', help='call the path of the database', type = str, required=True)
+    parser.add_argument('-j','--job_path', help='call the API link', type = str, required=True)
     args = parser.parse_args()
     return args
 
@@ -24,7 +24,7 @@ def main(args):
     mwr.change_to_country_name(raw_table, country_clean_dictionary)
     chosen_country = input('Please choose a country: ')
     chosen_country_final = mwr.country_input(raw_table, chosen_country)
-    print('please, be patient...the creation of job urls takes some time..')
+    print('please, be patient...getting the the job titles takes some time..')
     list_id = man.list_with_job_ids(df_career_info)
     list_path_jobs = man.path_jobs(list_id, args.job_path)
     job_name_uuid = mwr.get_json_data(list_path_jobs)
